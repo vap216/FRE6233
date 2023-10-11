@@ -12,11 +12,11 @@ namespace fre::bsm {
 		// Value is E[(k - S)^+]/R, where R = exp(r t).
 		//                  ------------market-----------
 		//                  --bond--|-------stock--------  ------option------
-		inline double value(double r, double S0, double σ, double k, double t)
+		inline double value(double r, double S0, double sigma, double k, double t)
 		{
-			double R = 0; //!!! implement this
-			double f = 0; //!!! implement this
-			double s = 0; //!!! implement this
+			double R = exp(r*t); //!!! implement this
+			double f = R*S0; //!!! implement this
+			double s = sigma*sqrt(t); //!!! implement this
 
 			return fre::black::put::value(f, s, k)/R;
 		}
